@@ -1,0 +1,105 @@
+26/9- Strlcpy esta pidiendo warning to overflow in dest. Habra de actualuizarse el control en todos los ft_str
+
+
+El subject exige que cada función tenga el mismo prototipo y comportamiento que la original de la libc, pero **sí puedes apoyarte en otras funciones que tú mismo ya implementaste**, siempre que no cambies la interfaz pública.
+
+---
+
+## 🔹 Estrategia de implementación
+
+### 1. **Empezar por las funciones base (muy simples)**
+
+Estas no dependen de nada más y luego servirán de apoyo:
+
+* `ft_isalpha`
+* `ft_isdigit`
+* `ft_isascii`
+* `ft_isprint`
+* `ft_strlen`
+
+---
+
+### 2. **Construir funciones compuestas a partir de las anteriores**
+
+* `ft_isalnum` → se puede escribir en base a `ft_isalpha` y `ft_isdigit`:
+
+  ```c
+  int ft_isalnum(int c)
+  {
+      return (ft_isalpha(c) || ft_isdigit(c));
+  }
+  ```
+* `ft_toupper` y `ft_tolower` → usando simples rangos (`'a'..'z'`, `'A'..'Z'`), pero se apoyan en la lógica de `isalpha`.
+
+---
+
+### 3. **Funciones de memoria y strings fundamentales**
+
+Estas son la base para todo lo que viene después:
+
+* `ft_memset`
+* `ft_bzero` → puede implementarse como `ft_memset(ptr, 0, n)`
+* `ft_memcpy`
+* `ft_memmove` (cuidado, esta no puede basarse en `ft_memcpy` directamente por el solapamiento, pero puedes inspirarte en la lógica).
+* `ft_memchr`
+* `ft_memcmp`
+
+Con esto ya tienes una base muy sólida.
+
+---
+
+### 4. **Funciones de manipulación de strings**
+
+Una vez tengas `ft_strlen` y `ft_memcpy`, puedes simplificar:
+
+* `ft_strlcpy` → usa `ft_strlen` y `ft_memcpy`
+* `ft_strlcat` → usa `ft_strlen` y `ft_memcpy`
+* `ft_strchr` / `ft_strrchr` → bucles simples sobre `char *`
+* `ft_strncmp` → lógica parecida a `ft_memcmp`
+* `ft_strnstr` → se apoya en `ft_strncmp` y `ft_strlen`
+
+---
+
+### 5. **Conversión de cadenas**
+
+* `ft_atoi` → bucle con `ft_isdigit` ya hecho
+* `ft_calloc` → usa `malloc` + `ft_bzero`
+* `ft_strdup` → usa `ft_strlen` + `ft_memcpy`
+
+---
+
+## 🔹 Bonus (si haces esta parte)
+
+Cuando llegues a listas (`ft_lst*`), muchas funciones se construyen unas sobre otras:
+
+* `ft_lstnew` primero (nodo simple con `malloc`)
+* `ft_lstadd_front` / `ft_lstadd_back` → se basan en `ft_lstnew`
+* `ft_lstsize` y `ft_lstlast` → recorridos sencillos
+* `ft_lstclear` → usa `ft_lstdelone`
+* `ft_lstmap` → usa `ft_lstnew`, `ft_lstadd_back`, y `ft_lstclear` para manejo de errores.
+
+---
+
+## 🔹 Orden sugerido de desarrollo
+
+1. **is/ctype** → `ft_isalpha`, `ft_isdigit`, `ft_isascii`, `ft_isprint`, `ft_isalnum`, `ft_toupper`, `ft_tolower`.
+2. **strings básicas** → `ft_strlen`, `ft_strdup`, `ft_strncmp`, `ft_strchr`, `ft_strrchr`.
+3. **memoria** → `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_memmove`, `ft_memchr`, `ft_memcmp`.
+4. **funciones combinadas** → `ft_strlcpy`, `ft_strlcat`, `ft_strnstr`.
+5. **números y alloc** → `ft_atoi`, `ft_calloc`.
+6. (Bonus) → listas.
+
+---
+
+✅ De esta manera, **maximizas la reutilización**:
+
+* `ft_isalnum` depende de `isalpha + isdigit`.
+* `ft_bzero` depende de `memset`.
+* `ft_calloc` depende de `bzero`.
+* `ft_strdup` depende de `strlen + memcpy`.
+* `ft_strnstr` depende de `strlen + strncmp`.
+
+---
+
+¿Quieres que te arme un **mapa visual** (tipo diagrama de dependencias) mostrando qué funciones se pueden construir sobre cuáles, para que tengas una guía clara de reutilización?
+
