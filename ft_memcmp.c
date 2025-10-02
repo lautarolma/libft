@@ -1,26 +1,28 @@
 #include "libft.h"
+//#include <stdio.h>
+//#include <string.h>
 
-int	memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t	i;
-prueba
-	int		dif;
-wdbnfjbfn
-	if (!s1 || !s2)
+
+	if (n == 0)
 		return (0);
 	i = 0;
 	while (i < n)
-	if (s1[i] != s2[i]) //Not shure what  the functions do.. Check Man before to go on.
 	{
-		dif
+		if (((unsigned char)*s1)[i] != ((unsigned char)*s2)[i])
+			return (((unsigned char)*s1)[i] - ((unsigned char)*s2)[i]);
 		i++;
 	}
-	return (n);
+	return (0);
 }
-
+/*
 int	main()
 {
-	const void*	str1 = "ASDFGHJ"
-	const void*	str2 = "ASDFHJKL"
-	size_t		n
-}
+	const void*	str1 = "ASDFGHJ";
+	const void*	str2 = "ASDFGJKL";
+	size_t		n = 5;
+	printf("Result = %d\n",ft_memcmp(str1, str2, n));
+	return (0);
+}*/
