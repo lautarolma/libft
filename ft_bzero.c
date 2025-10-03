@@ -4,10 +4,10 @@
 
 void	ft_bzero(void *s, size_t len)
 {
-	char*	tmp;
+	char	*tmp;
 	int		c;
 
-	tmp = (char*)s;
+	tmp = (char *)s;
 	c = '\0';
 	ft_memset(tmp, c, len);
 }
@@ -15,13 +15,12 @@ void	ft_bzero(void *s, size_t len)
 int	main()
 {
 	char	str[] = "Hello world";
-	size_t	n = 1;
+	size_t	n = 3;
 	size_t	i = 0;
-	size_t	len = ft_strlen(str) + 2;
 
 	printf("Str antes: %s\n", str);
 	ft_bzero(str, n);
-	write(1, "Str despues: ", len);
+	write(1, "Str despues: ", 13);
 	while (i < 11)
 	{
 		write(1, &str[i], 1);

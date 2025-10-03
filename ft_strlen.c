@@ -1,7 +1,7 @@
 #include "libft.h"
 //#include <stdio.h>
 
-size_t ft_strlen(const char* s)
+size_t ft_strlen(const char *s)
 {
 	const char* start;
 
@@ -16,7 +16,7 @@ size_t ft_strlen(const char* s)
 /*
 int main()
 {
-    char* s = "asvhnbv";
+    char *s = "asvhnbv";
     printf("Adress of s = %p\n", &s);
     printf("Lenght de s = %ld\n", ft_strlen(s));
     printf("Adress of s = %p\n", &s);
