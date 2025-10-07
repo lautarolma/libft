@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/07 22:05:53 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/07 22:05:55 by laviles          ###   ########.fr       */
+/*   Created: 2025/10/07 21:58:46 by laviles           #+#    #+#             */
+/*   Updated: 2025/10/07 21:58:53 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,32 @@
 //#include <stdio.h>
 //#include <string.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t		i;
+	size_t	i;
+	size_t	j;
 
+	if (*little == '\0')
+		return ((char *)big);
 	i = 0;
-	while (i < n)
+	while (big[i] && i < len)
 	{
-		((unsigned char *)dest)[i] = ((const unsigned char *)src)[i];
+		j = 0;
+		while (little[j] && (i + j < len) && big[i + j] == little[j])
+			j++;
+		if (little[j] == '\0')
+			return (&((char *)big)[i]);
 		i++;
 	}
-	return (dest);
+	return (NULL);
 }
 /*
-int		main()
+int	main()
 {
-	char str[] = "ABCDEFGHIJK";
-	void*	dest = &str[5];
-	void*	src = &str[0];
-	size_t	n = 4;
+	const char	*little	=	"carancho";
+	const char	*big	=	"comadrejacaranchocamaleon";
+	size_t		len		=	20;
 
-	printf("src = %s\n", (char*)src);
-	printf("dst = %s\n",(char*)ft_memcpy(dest, src, n));
-	return(0);	
+	printf("%s", ft_strnstr(big, little, len));
+	return(0);
 }*/

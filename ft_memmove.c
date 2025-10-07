@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/07 22:06:12 by laviles           #+#    #+#             */
+/*   Updated: 2025/10/07 22:06:42 by laviles          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 //#include <stdio.h>
 //#include <string.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char		*start;
-	size_t		i;
+	unsigned char	*start;
+	size_t			i;
 
 	start = (unsigned char *)dest;
 	if (n == 0)
