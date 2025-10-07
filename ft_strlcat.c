@@ -1,27 +1,37 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: laviles <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 21:15:39 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/06 21:18:45 by laviles          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "libft.h"
+//#include <stdio.h>
+//#include <string.h>
 
-
-#include <stdio.h>
-#include <string.h>
-
-int main()
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	const char	str1[] = "adfghkj";
-	const char	*src = str1;
-	char		str2 = {0};
-	char		*dst = &str2;
-	size_t			size = 4;
+	size_t	dst_len;
+	size_t	src_len;
 
-	printf("%d", strlcat(dst, src, size));
-	return (0);
+	dst_len = 0;
+	src_len = 0;
+	while (dst_len < size && dst[dst_len])
+		dst_len++;
+	if (dst_len >= size)
+		return (size + ft_strlen(src));
+	while ((dst_len + src_len < size -1) && src[src_len])
+	{
+		dst[dst_len + src_len] = src[src_len];
+		src_len++;
+	}
+	dst[dst_len + src_len] = '\0';
+	return (dst_len + ft_strlen(src));
 }
+/*
+int	main()
+{
+	const char	str_src[]	= " mundo";
+	char		str_dst[22] = "Hola";
+	size_t		size		= 22;
+	const char	*p_src		= str_src;
+	char		*p_dst		= str_dst;
+
+	printf("lengt = %ld\n", ft_strlcat(p_dst, p_src, size));
+	printf("Dst = %s\n", p_dst);
+
+	return (0);
+}*/

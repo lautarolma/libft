@@ -20,9 +20,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 /*
 int	main()
 {
-	const void*	str1 = "ASDFGHJ";
-	const void*	str2 = "ASDFGJKL";
-	size_t		n = 5;
+	const void*	str1 = "asdf";
+	const void*	str2 = "asdf\0\0'g'";
+	size_t		n = 7;
 	printf("Result = %d\n",ft_memcmp(str1, str2, n));
 	return (0);
 }*/
