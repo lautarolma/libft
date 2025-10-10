@@ -88,6 +88,18 @@ ERRORS
        ENOMEM Insufficient memory available to allocate duplicate string.
 
 
+
+
+________________________________________________________________________________________________
+_________________________________________________________________________________________________
+
+PENDIENTES PRE ENTREGA.
+
+- Controlar nombres y prototipos
+- Controlar Libft.h y Man (Testear)
+- Controlar librerias incluidas al libft.h (permisibilidad del Subject)
+- modificar el man e incluir todos los comandos BONUS objs Bonus, etc.
+
 El subject exige que cada función tenga el mismo prototipo y comportamiento que la original de la libc, pero **sí puedes apoyarte en otras funciones que tú mismo ya implementaste**, siempre que no cambies la interfaz pública.
 
 ---
