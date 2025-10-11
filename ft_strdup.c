@@ -1,49 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 14:38:02 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/10 14:40:20 by laviles          ###   ########.fr       */
+/*   Created: 2025/10/11 02:51:24 by laviles           #+#    #+#             */
+/*   Updated: 2025/10/11 02:51:29 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 //#include <stdio.h>
+//#include <string.h>
 //#include <stdlib.h>
 
-int	ft_atoi(const char *nptr)
+char	*ft_strdup(const char *s)
 {
-	int	i;
-	int	sign;
-	int	nmb;
+	char	*str;
+	size_t	len;
 
-	i = 0;
-	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
-		i++;
-	sign = 1;
-	if (nptr[i] == '+' || nptr[i] == '-')
-	{
-		if (nptr[i] == '-')
-			sign = -1;
-		i++;
-	}
-	nmb = 0;
-	while (ft_isdigit(nptr[i]))
-	{
-		nmb = (nmb * 10) + (nptr[i] - '0');
-		i++;
-	}
-	return (nmb * sign);
+	len = ft_strlen(s) + 1;
+	str = (char *)malloc(len);
+	if (!str)
+		return (NULL);
+	ft_memcpy(str, s, len);
+	return (str);
 }
 /*
 int	main()
 {
-	const char	str[]	= "\t\n -32- -132505";
-	const char	*nptr	= str;
-
-	printf("%d\n", ft_atoi(nptr));
+	const char	*src = "Hello world";
+	char		*dst = ft_strdup(src);
+	
+	printf("%r", (int)c); 
+	free(dst - 11);
 	return (0);
 }*/
