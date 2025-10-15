@@ -96,7 +96,3 @@ int main()
 	}
 	return (0);
 }
-
-//Contador de palabras = nwords
-//Heap manager = memalocator
-//
