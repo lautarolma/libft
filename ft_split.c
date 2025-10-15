@@ -6,13 +6,29 @@
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 17:48:40 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/15 18:31:54 by laviles          ###   ########.fr       */
+/*   Updated: 2025/10/15 22:14:27 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
+//#include <stdio.h>
+//#include <stdlib.h>
+
+size_t	ft_nwords(const char *s, char c)
+{
+	size_t	i;
+	size_t	nwords;
+
+	nwords = 0;
+	i = 0;
+	while (s[i])
+	{
+		if ((s[i] != c && i == 0) || (s[i] != c && s[i - 1] == c))
+			nwords++;
+		i++;
+	}
+	return (nwords);
+}
 
 size_t	ft_wstart(char *start, char c)
 {
@@ -21,13 +37,7 @@ size_t	ft_wstart(char *start, char c)
 	i = 0;
 	while (start[i] && start[i] == c)
 		i++;
-	while (start[i])
-	{
-		if ((start[i] != c && i == 0) || (start[i] != c && start[i - 1] == c))
-			return (i);
-		i++;
-	}
-	return (0);
+	return (i);
 }
 
 size_t	ft_wlen(char *start, char c)
@@ -37,14 +47,17 @@ size_t	ft_wlen(char *start, char c)
 
 	len = 0;
 	i = 0;
-	while (start[i++] != c)
+	while (start[i] && start[i] != c)
+	{
 		len++;
+		i++;
+	}
 	return (len);
 }
 
 char	*ft_walocator(char **array, char *start, size_t len, size_t i)
 {
-	array[i] = ft_substr(start, 0, len + 1);
+	array[i] = ft_substr(start, 0, len);
 	if (!array[i])
 	{
 		while ((int)i >= 0)
@@ -53,6 +66,8 @@ char	*ft_walocator(char **array, char *start, size_t len, size_t i)
 			i--;
 		}
 		free (array);
+		start = NULL;
+		return (start);
 	}
 	i++;
 	start += len;
@@ -69,11 +84,7 @@ char	**ft_split(char const *s, char c)
 
 	if (s == NULL)
 		return (NULL);
-	nwords = 0;
-	i = -1;
-	while (s[++i])
-		if ((s[i] != c && i == 0) || (s[i] != c && s[i - 1] == c))
-			nwords++;
+	nwords = ft_nwords(s, c);
 	array = malloc((nwords + 1) * sizeof(char *));
 	if (!array)
 		return (NULL);
@@ -84,10 +95,12 @@ char	**ft_split(char const *s, char c)
 		start = &start[ft_wstart(start, c)];
 		len = ft_wlen(start, c);
 		start = ft_walocator(array, start, len, i);
+		if (!start)
+			return (NULL);
 	}
 	return (array);
 }
-
+/*
 int main()
 {
 	char const	*str = "  Don't  said words   you're going to   regreat  ";
@@ -102,4 +115,4 @@ int main()
 		i++;
 	}
 	return (0);
-}
+}*/
