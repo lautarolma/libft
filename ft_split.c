@@ -1,49 +1,98 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/12 00:20:51 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/12 05:00:20 by laviles          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 #include <stdio.h>
+#include <stdlib.h>
 
-char	*ft_findwords(char const *s, char c)
+char	*ft_wstart(char const *s, char c)
 {
-	size_t	n_words;
 	size_t	i;
-	char	**array;
+	char	*start;
 
-	if (!s || !c)
-		return (NULL);
-	n_words = 0;
+	i = 0;
+	while (s[i] && s[i] == c)
+		i++;
 	while (s[i])
 	{
-		if (i == 0 && (s[i] != c || s[i - 1] == c))
-			n_words++;
+		if ((s[i] != c && i == 0) || (s[i] != c && s[i - 1] == c))
+		{
+			start = (char *)(s + i);
+			return (start);
+		}
 		i++;
 	}
-	array = malloc((n_words + 1) * sizeof(char));
+	return (NULL);
+}
+
+size_t	ft_wlen(char *start, char c)
+{
+	size_t	len;
+	size_t	i;
+
+	len = 0;
+	i = 0;
+	while (start[i++] != c)
+		len++;
+	return (len);
+}
+
+void	ft_walocator(char **array, char *start, size_t len, size_t i) 
+{
+	array[i] = ft_substr(start, 0, len + 1);
+	if (!array[i])
+	{
+		while ((int)i >=0)
+		{
+			free (array[i]);
+			i--;
+		}
+		free (array);
+	}
+	i++;
+	start += len;
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char		**array;
+	char		*start;
+	size_t		nwords;
+	size_t		i;
+	size_t		len;
+
+	if (!s)
+		return (NULL);
+	nwords = 0;
+	i = 0;
+	while (s[i])
+	{
+		if ((s[i] != c && i == 0) || (s[i] != c && s[i - 1] == c))
+			nwords++;
+		i++;
+	}
+	array = malloc((nwords + 1) * sizeof(char *));
 	if (!array)
 		return (NULL);
-	array = ft_word_store
+	i = 0;
+	while (i < nwords)
+	{
+		start = ft_wstart(s, c);
+		len = ft_wlen(start, c);
+		ft_walocator(array, start, len, i);
+		i++;
+	}
+	return (array);
 }
 
-char **ft_split(char const *s, char c)
+int main()
 {
-	
-}
-int	main()
-{
-	char const	*s	= "Hello, world, Madrid!";
-	char		c	= ", ";
-	char		**array_strs
+	char const	*str = "Despair, Hangover & Ecstasy";
+	char		c = ' ';
+	char	**split = ft_split(str, c);
+	size_t	i = 0;
 
-	free (array_strs);
-	return (0);	
+	while (split[i])
+	{
+		printf("%ld %s\n", i, split[i]);
+		i++;
+	}
+	return (0);
 }
