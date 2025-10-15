@@ -61,12 +61,12 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	nwords = 0;
-	len = 0;
-	while (s[len])
+	i = 0;
+	while (s[i])
 	{
-		if ((s[len] != c && len == 0) || (s[len] != c && s[len - 1] == c))
+		if ((s[i] != c && i == 0) || (s[i] != c && s[i - 1] == c))
 			nwords++;
-		len++;
+		i++;
 	}
 	array = malloc((nwords + 1) * sizeof(char *));
 	if (!array)
