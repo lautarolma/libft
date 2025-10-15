@@ -1,51 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 01:05:32 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/08 01:15:21 by laviles          ###   ########.fr       */
+/*   Created: 2025/10/12 00:20:51 by laviles           #+#    #+#             */
+/*   Updated: 2025/10/12 05:00:20 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
-#include <stdlib.h>
 
-int	ft_atoi(const char *nptr)
+char	*ft_findwords(char const *s, char c)
 {
-	int	i;
-	int	sign;
-	int nmb;
+	size_t	n_words;
+	size_t	i;
+	char	**array;
 
-	i = 0;
-	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
+	if (!s || !c)
+		return (NULL);
+	n_words = 0;
+	while (s[i])
 	{
+		if (i == 0 && (s[i] != c || s[i - 1] == c))
+			n_words++;
 		i++;
 	}
-	sign = 1;
-	if (nptr[i] == '+' || nptr[i] == '-')
-	{
-		if (nptr[i] == '-')
-			sign = -1;
-		i++;
-	}
-	nmb = 0;
-	while (ft_isdigit(nptr[i]))
-	{
-		nmb = nmb * 10 + (nptr[i] - '0');
-		i++;
-	}
-	return (nmb * sign);
+	array = malloc((n_words + 1) * sizeof(char));
+	if (!array)
+		return (NULL);
+	array = ft_word_store
 }
 
+char **ft_split(char const *s, char c)
+{
+	
+}
 int	main()
 {
-	const char	str[] = "  \n \t+335683a45";
-	const char	*nptr = str;
+	char const	*s	= "Hello, world, Madrid!";
+	char		c	= ", ";
+	char		**array_strs
 
-	printf("%d", ft_atoi(nptr));
-	return(0);	
+	free (array_strs);
+	return (0);	
 }
