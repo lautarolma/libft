@@ -6,14 +6,14 @@
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 02:51:24 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/11 02:51:29 by laviles          ###   ########.fr       */
+/*   Updated: 2025/10/16 05:09:30 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 //#include <stdio.h>
 //#include <string.h>
-//#include <stdlib.h>
 
 char	*ft_strdup(const char *s)
 {
