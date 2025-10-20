@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/20 14:59:13 by laviles           #+#    #+#             */
+/*   Updated: 2025/10/20 15:00:00 by laviles          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include <stdlib.h>
 //#include <stdio.h>
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	int		len;
 	int		i;
@@ -17,7 +29,6 @@ char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = -1;
 	while (s[++i])
 		fstr[i] = f(i, s[i]);
-	
 	return (fstr);
 }
 /*

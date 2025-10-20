@@ -6,14 +6,14 @@
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 22:15:46 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/16 17:40:28 by laviles          ###   ########.fr       */
+/*   Updated: 2025/10/20 18:44:01 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
+//#include <stdio.h>
 
 int	ft_ncounter(int n)
 {
@@ -44,8 +44,6 @@ void	ft_screator(int n, char *strnb, int len)
 	}
 }
 
-
-
 char	*ft_itoa(int n)
 {
 	char	*strnb;
@@ -60,11 +58,11 @@ char	*ft_itoa(int n)
 		len++;
 	strnb = malloc((len + 1) * sizeof(char));
 	if (!strnb)
-		return NULL;
+		return (NULL);
 	ft_screator(n, strnb, len);
 	return (strnb);
 }
-
+/*
 int	main()
 {
 	int test[] = {0, 5, -5, 10, -10, 12345, -12345, INT_MAX, INT_MIN};
@@ -80,7 +78,7 @@ int	main()
 	}
 	return (0);
 }
-/*
+
 int	main()
 {
 	int		n;

@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putchr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/07 22:02:24 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/20 20:21:22 by laviles          ###   ########.fr       */
+/*   Created: 2025/10/20 17:17:54 by laviles           #+#    #+#             */
+/*   Updated: 2025/10/20 17:18:56 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
 
-int	ft_isascii(int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	return (c >= 0 && c <= 127);
+	write(fd, &c, 1);
 }
 /*
 int	main()
 {
-	unsigned char c = '\0';
-	printf("%c, It's ASCII? = %d\n", c,ft_isascii((unsigned char) c));
+	int	fd_rw;
+
+	fd_rw = open("blue.txt", O_RDWR);
+	ft_putchar_fd('t', fd_rw);
+	printf("fd value %d\n", fd_rw);
 	return (0);
 }*/

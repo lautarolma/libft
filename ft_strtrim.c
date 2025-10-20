@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/20 20:27:06 by laviles           #+#    #+#             */
+/*   Updated: 2025/10/20 20:27:08 by laviles          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+#include <stdlib.h>
 //#include <stdio.h>
-//#include <stdlib.h>
 
 char	*ft_strtrim(char const *s1, char const *set)
 {

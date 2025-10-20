@@ -6,7 +6,7 @@
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 22:12:38 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/07 22:12:39 by laviles          ###   ########.fr       */
+/*   Updated: 2025/10/20 20:48:30 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ char	*ft_strrchr(const char *s, int c)
 {
 	char	*end;
 
-	end = (char *)s + ft_strlen(s);
-	while (end > s)
+	if (!s)
+		return (NULL);
+	end = (char *)s + ft_strlen(s) + 1;
+	while (end >= s)
 	{
 		if (*end == c)
 			return (end);

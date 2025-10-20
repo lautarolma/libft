@@ -6,7 +6,7 @@
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 22:04:18 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/07 22:04:21 by laviles          ###   ########.fr       */
+/*   Updated: 2025/10/20 20:55:14 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	while (n > 0)
 	{
-		if (*(unsigned char *)s == c)
+		if (*(unsigned char *)s == (unsigned char)c)
 			return ((unsigned char *)s);
 		s++;
 		n--;

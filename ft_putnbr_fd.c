@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/07 22:02:24 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/20 20:21:22 by laviles          ###   ########.fr       */
+/*   Created: 2025/10/20 18:51:13 by laviles           #+#    #+#             */
+/*   Updated: 2025/10/20 18:51:59 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdlib.h>
+//#include <stdio.h>
 
-int	ft_isascii(int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	return (c >= 0 && c <= 127);
+	char	*nb;
+	int		len;
+
+	nb = ft_itoa(n);
+	if (!nb)
+		return ;
+	len = ft_strlen(nb);
+	write(fd, nb, len);
+	free(nb);
 }
 /*
 int	main()
 {
-	unsigned char c = '\0';
-	printf("%c, It's ASCII? = %d\n", c,ft_isascii((unsigned char) c));
-	return (0);
+	int	n	= 6;
+	int	fd	= open("blue.txt", O_RDWR);
+	ft_putnbr_fd(n, fd);
+	printf("%d\n", close(fd));
 }*/

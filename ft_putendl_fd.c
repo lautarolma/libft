@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/07 22:02:24 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/20 20:21:22 by laviles          ###   ########.fr       */
+/*   Created: 2025/10/20 17:40:33 by laviles           #+#    #+#             */
+/*   Updated: 2025/10/20 17:43:25 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
+#include <fcntl.h>
 #include <stdio.h>
 
-int	ft_isascii(int c)
+void	ft_putendl_fd(char *s, int fd)
 {
-	return (c >= 0 && c <= 127);
+	while (*s)
+	{
+		ft_putchar_fd(*s, fd);
+		s++;
+	}
+	ft_putchar_fd('\n', fd);
 }
 /*
 int	main()
 {
-	unsigned char c = '\0';
-	printf("%c, It's ASCII? = %d\n", c,ft_isascii((unsigned char) c));
+	char	*s = "Hello world";
+	int		fd = open("blue.txt", O_WRONLY);
+	ft_putendl_fd(s, fd);
+	printf("%d\n", close(fd));
 	return (0);
 }*/

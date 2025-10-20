@@ -6,13 +6,13 @@
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 17:48:40 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/15 22:14:27 by laviles          ###   ########.fr       */
+/*   Updated: 2025/10/20 19:50:16 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 //#include <stdio.h>
-//#include <stdlib.h>
 
 size_t	ft_nwords(const char *s, char c)
 {
