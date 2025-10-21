@@ -11,11 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <stdio.h>
 
 void	ft_putnbr_fd(int n, int fd)
 {

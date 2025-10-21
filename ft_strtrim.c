@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>
 
 char	*ft_trimmer(char const *s1, char *trimmed, size_t start, size_t end)
 {

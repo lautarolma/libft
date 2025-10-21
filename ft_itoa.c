@@ -11,9 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <limits.h>
-//#include <stdio.h>
 
 int	ft_ncounter(int n)
 {
