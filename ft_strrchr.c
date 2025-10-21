@@ -6,24 +6,26 @@
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 22:12:38 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/20 20:48:30 by laviles          ###   ########.fr       */
+/*   Updated: 2025/10/21 19:27:28 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <stdio.h>
-//#include <string.h>
+#include <stdio.h>
+#include <string.h>
 
 char	*ft_strrchr(const char *s, int c)
 {
 	char	*end;
+	int		len;
 
-	if (!s)
-		return (NULL);
-	end = (char *)s + ft_strlen(s) + 1;
+	len = (ft_strlen(s));
+	end = (char *)s + len;
+	if ((unsigned char)c == '\0')
+		return (&((char *)s)[len]);
 	while (end >= s)
 	{
-		if (*end == c)
+		if (*end == (unsigned char)c)
 			return (end);
 		end--;
 	}
@@ -32,9 +34,10 @@ char	*ft_strrchr(const char *s, int c)
 /*
 int	main()
 {
-	const char	s[] = "asxfgxxcvfvb";
-	int			c	= 'x';
+	const char	s[] = "123456789";
+	int			c	= '\0';
 
-	printf("%s", ft_strrchr(s, c));
+	printf("%s\n", ft_strrchr(s, c));
+	printf("%s\n", strrchr(s, c));
 	return (0);
 }*/

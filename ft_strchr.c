@@ -6,7 +6,7 @@
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 22:07:37 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/20 20:42:48 by laviles          ###   ########.fr       */
+/*   Updated: 2025/10/21 22:20:58 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,17 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	if (!s)
-		return (NULL);
-	while (*s)
+	char	*c_c;
+
+	c_c = (char *)s;
+	while (*c_c)
 	{
-		if (*s == c)
-			return ((char *)s);
-		s++;
+		if (*c_c == (unsigned char)c)
+			return (c_c);
+		c_c++;
 	}
-	if (*s == c)
-		return ((char *)s);
+	if ((unsigned char)c == 0)
+		return (c_c);
 	return (NULL);
 }
 /*

@@ -6,7 +6,7 @@
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 17:48:40 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/20 19:50:16 by laviles          ###   ########.fr       */
+/*   Updated: 2025/10/21 03:02:58 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ char	**ft_split(char const *s, char c)
 	if (!array)
 		return (NULL);
 	i = -1;
+	array[nwords] = NULL;
 	start = (char *)s;
 	while (++i < nwords)
 	{

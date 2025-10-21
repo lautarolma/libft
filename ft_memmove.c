@@ -6,23 +6,24 @@
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 22:06:12 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/07 22:06:42 by laviles          ###   ########.fr       */
+/*   Updated: 2025/10/21 21:55:08 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <stdio.h>
-//#include <string.h>
+#include <stdio.h>
+#include <string.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char	*start;
 	size_t			i;
 
+	if (!dest && !src)
+		return (NULL);
 	start = (unsigned char *)dest;
 	if (n == 0)
 		return (dest);
-	i = 0;
 	if (dest > src)
 	{
 		while (n >= 1)
@@ -33,11 +34,9 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	else
 	{
-		while (i < n)
-		{
+		i = -1;
+		while (++i < n)
 			start[i] = ((const char *)src)[i];
-			i++;
-		}
 	}
 	return (dest);
 }
@@ -47,9 +46,10 @@ int	main()
 	char		str[]	=  "Hello world";
 	void		*dest = &str[4];
 	const void	*src = &str[0];
-	size_t		n = 6;
+	size_t		n = 0;
 
 	printf("src = %s\n", (char *)src);
-	printf("dest = %s\n", (char *)memmove(dest, src, n * sizeof(char)));
+	//printf("dest = %s\n", (char *)ft_memmove(dest, src, n * sizeof(char)));
+	printf("dest = %s\n", (char *)memmove(NULL, NULL, n * sizeof(char)));
 	return (0);
 }*/
