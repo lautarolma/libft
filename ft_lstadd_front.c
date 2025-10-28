@@ -6,7 +6,7 @@
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 18:40:29 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/28 19:44:21 by laviles          ###   ########.fr       */
+/*   Updated: 2025/10/28 20:05:41 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int	main()
 	while (root)
 	{
 		current = root->next;
+		free(root);
 		root = current;
 	}
 	return (0);
