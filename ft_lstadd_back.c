@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/27 18:40:29 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/28 20:35:28 by laviles          ###   ########.fr       */
+/*   Created: 2025/10/28 23:51:05 by laviles           #+#    #+#             */
+/*   Updated: 2025/10/29 00:26:51 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*tmp_node;
+	t_list	*last;
 
-	tmp_node = *lst;
-	*lst = new;
-	new->next = tmp_node;
+	if (!*lst || !new)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	last = *lst;
+	while (last->next)
+		last = last->next;
+	last->next = new;
 }
 /*
 int	main()
@@ -27,7 +35,7 @@ int	main()
 	t_list	*root;
 	t_list	*new1;
 	t_list	*new2;
-	t_list	*new_front;
+	t_list	*new_back;
 	int		i;
 	int		val1;
 	int		val2;
@@ -60,10 +68,11 @@ int	main()
 		current = current->next;
 		i++;
 	}
-	new_front = ft_lstnew(&val4);
-	ft_lstadd_front(&root, new_front);
-	printf("\n=====Contenido de la lista afther swap=====\n");
+	new_back = ft_lstnew(&val4);
 	current = root;
+	ft_lstadd_back(&root, new_back);
+	current = root;
+	printf("\n=====Contenido de la lista afther swap=====\n");
 	i = 0;
 	while (current)
 	{

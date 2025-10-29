@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/27 18:40:29 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/28 20:35:28 by laviles          ###   ########.fr       */
+/*   Created: 2025/10/28 23:16:23 by laviles           #+#    #+#             */
+/*   Updated: 2025/10/28 23:41:14 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	ft_lstsize(t_list *lst)
 {
-	t_list	*tmp_node;
+	int		size;
 
-	tmp_node = *lst;
-	*lst = new;
-	new->next = tmp_node;
+	if (!lst)
+		return (ft_putstr_fd("Error: alocation", 2), 1);
+	size = 1;
+	while (lst->next != NULL)
+	{
+		lst = lst->next;
+		size++;
+	}
+	return (size);
 }
 /*
 int	main()
 {
+	int		size;
 	t_list	*current;
 	t_list	*root;
 	t_list	*new1;
 	t_list	*new2;
-	t_list	*new_front;
-	int		i;
 	int		val1;
 	int		val2;
 	int		val3;
-	int		val4;
 
 	val1 = 54;
 	val2 = 2;
@@ -51,26 +55,9 @@ int	main()
 		return (ft_putstr_fd("Error: alocation", 2), 1);
 	new1->next = new2;
 	new2->next = NULL;
-	i = 0;
 	current = root;
-	printf("\n=====Contenido de la lista original=====\n");
-	while (current)
-	{
-		printf("El nodo%d contiene: %d\n", i, *(int *)current->content);
-		current = current->next;
-		i++;
-	}
-	new_front = ft_lstnew(&val4);
-	ft_lstadd_front(&root, new_front);
-	printf("\n=====Contenido de la lista afther swap=====\n");
-	current = root;
-	i = 0;
-	while (current)
-	{
-		printf("El nodo%d contiene: %d\n", i, *(int *)current->content);
-		current = current->next;
-		i++;
-	}
+	size = ft_lstsize(current);
+	printf("La lista tiene %d nodos de size\n", size);
 	while (root)
 	{
 		current = root->next;

@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/27 18:40:29 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/28 20:35:28 by laviles          ###   ########.fr       */
+/*   Created: 2025/10/28 23:42:01 by laviles           #+#    #+#             */
+/*   Updated: 2025/10/28 23:50:42 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*tmp_node;
-
-	tmp_node = *lst;
-	*lst = new;
-	new->next = tmp_node;
+	while (lst->next != NULL)
+	{
+		lst = lst->next;
+	}
+	return (lst);
 }
 /*
 int	main()
 {
+	t_list	*end;
 	t_list	*current;
 	t_list	*root;
 	t_list	*new1;
@@ -51,31 +52,15 @@ int	main()
 		return (ft_putstr_fd("Error: alocation", 2), 1);
 	new1->next = new2;
 	new2->next = NULL;
-	i = 0;
 	current = root;
-	printf("\n=====Contenido de la lista original=====\n");
-	while (current)
-	{
-		printf("El nodo%d contiene: %d\n", i, *(int *)current->content);
-		current = current->next;
-		i++;
-	}
-	new_front = ft_lstnew(&val4);
-	ft_lstadd_front(&root, new_front);
-	printf("\n=====Contenido de la lista afther swap=====\n");
-	current = root;
-	i = 0;
-	while (current)
-	{
-		printf("El nodo%d contiene: %d\n", i, *(int *)current->content);
-		current = current->next;
-		i++;
-	}
+	end = ft_lstlast(current);
+	printf("El ultimo nodo de la lista contiene %d\n", *(int *)end->content);
 	while (root)
 	{
 		current = root->next;
 		free(root);
 		root = current;
 	}
+	free(root);
 	return (0);
 }*/
