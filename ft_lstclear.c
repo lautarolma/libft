@@ -26,12 +26,12 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 		*lst = tmp;
 	}
 }
-
+/*
 void	del(void *i)
 {
 	free(i);
 }
-/*
+
 int	main()
 {
 	int			i;

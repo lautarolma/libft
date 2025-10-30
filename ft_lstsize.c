@@ -17,7 +17,7 @@ int	ft_lstsize(t_list *lst)
 	int		size;
 
 	if (!lst)
-		return (ft_putstr_fd("Error: alocation", 2), 1);
+		return (0);
 	size = 1;
 	while (lst->next != NULL)
 	{
