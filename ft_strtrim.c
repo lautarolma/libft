@@ -6,13 +6,13 @@
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 20:27:06 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/21 19:03:19 by laviles          ###   ########.fr       */
+/*   Updated: 2025/11/01 18:44:55 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_trimmer(char const *s1, char *trimmed, size_t start, size_t end)
+static char	*ft_trimmer(char const *s1, char *trimmed, size_t start, size_t end)
 {
 	int		i;
 
@@ -48,10 +48,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 /*
 int	main()
 {
-	const char	src[]		= "+-+-+-+He+-ll\no W\torld+-+-+";
-	char s1[] = "";
-	const char	target[]	= "et";
-	char		*trimmed	= ft_strtrim(s1, target);
+	const char	src[]		= "+-+-+-+He+-llo World+-+-+";
+	//char s1[] = "";
+	const char	target[]	= "+-";
+	char		*trimmed	= ft_strtrim(src, target);
 
 	printf("%s\n", trimmed);
 	free(trimmed);

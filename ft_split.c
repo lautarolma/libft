@@ -6,13 +6,13 @@
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 17:48:40 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/21 03:02:58 by laviles          ###   ########.fr       */
+/*   Updated: 2025/11/01 18:40:08 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_nwords(const char *s, char c)
+static size_t	ft_nwords(const char *s, char c)
 {
 	size_t	i;
 	size_t	nwords;
@@ -28,7 +28,7 @@ size_t	ft_nwords(const char *s, char c)
 	return (nwords);
 }
 
-size_t	ft_wstart(char *start, char c)
+static size_t	ft_wstart(char *start, char c)
 {
 	size_t	i;
 
@@ -38,7 +38,7 @@ size_t	ft_wstart(char *start, char c)
 	return (i);
 }
 
-size_t	ft_wlen(char *start, char c)
+static size_t	ft_wlen(char *start, char c)
 {
 	size_t	len;
 	size_t	i;
@@ -53,7 +53,7 @@ size_t	ft_wlen(char *start, char c)
 	return (len);
 }
 
-char	*ft_walocator(char **array, char *start, size_t len, size_t i)
+static char	*ft_walocator(char **array, char *start, size_t len, size_t i)
 {
 	array[i] = ft_substr(start, 0, len);
 	if (!array[i])

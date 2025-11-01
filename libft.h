@@ -6,12 +6,13 @@
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 20:21:47 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/27 19:16:22 by laviles          ###   ########.fr       */
+/*   Updated: 2025/11/01 18:47:07 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
 # include <stddef.h>
 # include <unistd.h>
 # include <stdlib.h>

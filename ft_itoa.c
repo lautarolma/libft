@@ -6,13 +6,13 @@
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 22:15:46 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/20 18:44:01 by laviles          ###   ########.fr       */
+/*   Updated: 2025/11/01 18:33:38 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_ncounter(int n)
+static int	ft_ncounter(int n)
 {
 	int		len;
 
@@ -25,7 +25,7 @@ int	ft_ncounter(int n)
 	return (len);
 }
 
-void	ft_screator(int n, char *strnb, int len)
+static void	ft_screator(int n, char *strnb, int len)
 {
 	if (n < 0)
 	{
