@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 23:51:05 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/29 00:26:51 by laviles          ###   ########.fr       */
+/*   Updated: 2025/11/01 05:47:26 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last;
 
-	if (!lst || !*lst || !new)
+	if (!lst || !new)
 		return ;
 	if (!*lst)
 	{
@@ -29,6 +29,11 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	last->next = new;
 }
 /*
+void	del(void *i)
+{
+	free(i);
+}
+
 int	main()
 {
 	t_list	*current;
@@ -70,6 +75,7 @@ int	main()
 	}
 	new_back = ft_lstnew(&val4);
 	current = root;
+	root = NULL;
 	ft_lstadd_back(&root, new_back);
 	current = root;
 	printf("\n=====Contenido de la lista afther swap=====\n");
@@ -86,5 +92,7 @@ int	main()
 		free(root);
 		root = current;
 	}
+	ft_lstclear(&current, free);
+	free (new_back);
 	return (0);
 }*/

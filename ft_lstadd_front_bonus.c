@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 18:40:29 by laviles           #+#    #+#             */
-/*   Updated: 2025/10/28 20:35:28 by laviles          ###   ########.fr       */
+/*   Updated: 2025/10/31 22:49:04 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,13 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	t_list	*tmp_node;
 
-	if (!lst || !*lst || !new)
+	if (!lst || !new)
 		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
 	tmp_node = *lst;
 	*lst = new;
 	new->next = tmp_node;

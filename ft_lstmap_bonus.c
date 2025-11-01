@@ -1,37 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/31 22:50:23 by laviles           #+#    #+#             */
+/*   Updated: 2025/11/01 06:34:02 by laviles          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*current;
-	t_list	*new_node;
 	t_list	*new_lst;
 	void	*new_content;
+	t_list	*new_node;
 
 	if (!lst || !f)
 		return (NULL);
-	current = lst;
 	new_lst = NULL;
-	while (current)
+	while (lst)
 	{
-		new_content = f(current->content);
-		if (!new_content)
-		{
-			ft_lstclear(&new_lst, del);
-			return (ft_putstr_fd("Alocation error", 2), NULL);
-		}
+		new_content = f(lst->content);
 		new_node = ft_lstnew(new_content);
 		if (!new_node)
 		{
 			del(new_content);
 			ft_lstclear(&new_lst, del);
-			return (ft_putstr_fd("Alocation error", 2), NULL);
+			return (NULL);
 		}
 		ft_lstadd_back(&new_lst, new_node);
-		current = current->next;
+		lst = lst->next;
 	}
 	return (new_lst);
 }
-
+/*
 void	del(void *i)
 {
 	free(i);
@@ -41,12 +46,15 @@ void	*ft_n_toupper(void *p)
 {
 	char	*result;
 
-	result = ft_calloc(1, sizeof(char));
+	result = ft_strdup((char *)p);
 	if (!result)
 		return (NULL);
-	*result = (*(char *)p);
-	if (*result >= 'a' && *result <= 'z')
-		*result -= 32;
+	int i = 0;
+	while (result[i])
+	{
+		result[i] = ft_toupper(result[i]);
+		i++;
+	}
 	return ((void *)result);
 }
 
@@ -84,7 +92,6 @@ int	main()
 		printf("Nodo Original: %c\n", *((char *)current->content));
 		current = current->next;
 	}
-
 	current = new_lst;
 	while (current)
 	{
@@ -92,6 +99,8 @@ int	main()
 		current = current->next;
 	}
 	ft_lstclear(&new_lst, del);
-	ft_lstclear(&node0, del);
+	free (node0);
+	free (node1);
+	free (node2);
 	return (0);
-}
+}*/
