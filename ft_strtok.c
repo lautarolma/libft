@@ -6,7 +6,7 @@
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:37:37 by laviles           #+#    #+#             */
-/*   Updated: 2025/12/19 19:45:38 by laviles          ###   ########.fr       */
+/*   Updated: 2026/01/25 10:04:11 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ char	*ft_strtok(char *str, char *delim)
 	if (!buffer || *buffer == '\0')
 		return (NULL);
 	while (*buffer && ft_strchr(delim, *buffer))
-			buffer++;
+		buffer++;
 	if (*buffer == '\0')
 		return (buffer = NULL);
 	start = buffer;
 	while (*buffer && !ft_strchr(delim, *buffer))
 		buffer++;
 	if (*buffer != '\0')
-	{				
+	{
 		*buffer = '\0';
 		buffer++;
 	}
@@ -37,6 +37,7 @@ char	*ft_strtok(char *str, char *delim)
 		buffer = (NULL);
 	return (start);
 }
+
 /*
 int main(void)
 {
@@ -63,6 +64,7 @@ int main(void)
         token = ft_strtok(NULL, delim);
     }
 
-    printf("\nFin del test. Si el Token 1 fue 'Hola' y el último 'Madrid', es correcto.\n");
+    printf("\nFin del test. Si el Token 1 fue 'Hola'
+		 y el último 'Madrid', es correcto.\n");
     return (0);
 }*/
