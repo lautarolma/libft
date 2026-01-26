@@ -1,0 +1,6 @@
+[submodule "get_next_line"]
+	path = get_next_line
+	url = https://github.com/lautarolma/Get_Next_Line.git
+[submodule "printf"]
+	path = printf
+	url = https://github.com/lautarolma/printf.git

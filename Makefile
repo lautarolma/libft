@@ -9,7 +9,17 @@ NAME		= 	libft.a
 
 CC			= 	cc
 
-CFLAGS		=	-Wall -Wextra -Werror 
+INCLUDES = -I. -Ignl -Ift_printf
+
+CFLAGS		=	-Wall -Wextra -Werror -I$(GNL_DIR) -I$(PRINTF_DIR) $(INCLUDES)
+
+# == directories ============================================================= #
+
+GNL_DIR = ./gnl/
+GNL_SRCS = $(GNL_DIR)get_next_line.c $(GNL_DIR)get_next_line_utils.c
+
+PRINTF_DIR = ./printf/
+PRINTF_SRCS = $(PRINTF_DIR)ft_printf.c $(PRINTF_DIR)ft_printf_utils.c
 
 # == Sources ================================================================= #
 
@@ -24,7 +34,8 @@ SRCS		=	ft_atoi.c ft_bzero.c ft_calloc.c \
 				ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 				ft_strncmp.c ft_strnstr.c ft_strrchr.c \
 				ft_strtrim.c ft_substr.c ft_tolower.c \
-				ft_toupper.c ft_strtok.c ft_strpbrk.c
+				ft_toupper.c ft_strtok.c ft_strpbrk.c \
+				$(GNL_SRCS) $(PRINTF_SRCS)
 
 OBJS			= 	$(SRCS:.c=.o)
 

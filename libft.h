@@ -6,7 +6,7 @@
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 20:21:47 by laviles           #+#    #+#             */
-/*   Updated: 2025/12/18 18:07:42 by laviles          ###   ########.fr       */
+/*   Updated: 2026/01/26 13:49:36 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <limits.h>
 # include <string.h>
 # include <fcntl.h>
+# include "get_next_line.h"
+# include "ft_printf.h"
 
 typedef struct s_list
 {
