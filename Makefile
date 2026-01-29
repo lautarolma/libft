@@ -9,14 +9,15 @@ NAME		= 	libft.a
 
 CC			= 	cc
 
-INCLUDES = -I. -Ignl -Ift_printf
+INCLUDES = -I. -Iget_next_line -Iprintf
 
 CFLAGS		=	-Wall -Wextra -Werror -I$(GNL_DIR) -I$(PRINTF_DIR) $(INCLUDES)
 
 # == directories ============================================================= #
 
-GNL_DIR = ./gnl/
+GNL_DIR = ./get_next_line/
 GNL_SRCS = $(GNL_DIR)get_next_line.c $(GNL_DIR)get_next_line_utils.c
+GNL_BONUS_SRCS = $(GNL_DIR)get_next_line_bonus.c $(GNL_DIR)get_next_line_utils_bonus.c
 
 PRINTF_DIR = ./printf/
 PRINTF_SRCS = $(PRINTF_DIR)ft_printf.c $(PRINTF_DIR)ft_printf_utils.c
@@ -46,6 +47,7 @@ BONUS_SRCS	=	ft_lstnew_bonus.c ft_lstadd_front_bonus.c \
 				ft_lstmap_bonus.c
 
 BONUS_OBJS	=	$(BONUS_SRCS:.c=.o)
+GNL_BONUS_OBJS = $(GNL_BONUS_SRCS:.c=.o)
 
 # == Rules =================================================================== #
 
@@ -54,11 +56,11 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+bonus: $(OBJS) $(BONUS_OBJS) $(GNL_BONUS_OBJS)
+	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS) $(GNL_BONUS_OBJS)
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS) $(BONUS_OBJS) $(GNL_BONUS_OBJS)
 
 fclean: clean
 	rm -f $(NAME)
