@@ -9,14 +9,14 @@ NAME		= 	libft.a
 
 CC			= 	cc
 
-INCLUDES = -I. -I get_next_line -I ft_print
+INCLUDES = -I. -I get_next_line -I printf
 
 CFLAGS		=	-Wall -Wextra -Werror -I $(GNL_DIR) -I $(PRINTF_DIR) $(INCLUDES)
 
 # == directories ============================================================= #
 
 GNL_DIR = ./get_next_line/
-GNL_SRCS = $(GNL_DIR)get_next_line.c $(GNL_DIR)get_next_line_utils.c
+GNL_SRCS = $(GNL_DIR)get_next_line.c $(GNL_DIR)get_next_line_utils.c $(GNL_DIR)get_next_line_utils_bonus.c $(GNL_DIR)get_next_line_bonus.c
 
 PRINTF_DIR = ./printf/
 PRINTF_SRCS = $(PRINTF_DIR)ft_printf.c $(PRINTF_DIR)ft_printf_utils.c
@@ -34,8 +34,8 @@ SRCS		=	ft_atoi.c ft_bzero.c ft_calloc.c \
 				ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 				ft_strncmp.c ft_strnstr.c ft_strrchr.c \
 				ft_strtrim.c ft_substr.c ft_tolower.c \
-				ft_toupper.c ft_strtok.c ft_strpbrk.c \
-				$(GNL_SRCS) $(PRINTF_SRCS)
+				ft_toupper.c ft_strtok.c ft_strpbrk.c ft_print_bits.c \
+				ft_strcmp.c $(GNL_SRCS) $(PRINTF_SRCS)
 
 OBJS			= 	$(SRCS:.c=.o)
 

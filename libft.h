@@ -20,8 +20,8 @@
 # include <limits.h>
 # include <string.h>
 # include <fcntl.h>
-# include "get_next_line.h"
-# include "ft_printf.h"
+# include "get_next_line/get_next_line.h"
+# include "printf/ft_printf.h"
 
 typedef struct s_list
 {
@@ -57,6 +57,7 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t size);
 size_t		ft_strlen(const char *s);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
+int			ft_strcmp(const char *s1, const char *s2);
 char		*ft_strnstr(const char *big, const char *little, size_t len);
 const char	*ft_strpbrk(const char *s1, const char *s2);
 char		*ft_strrchr(const char *s, int c);
@@ -75,5 +76,7 @@ t_list		*ft_lstlast(t_list *lst);
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list		*ft_lstnew(void *content);
 int			ft_lstsize(t_list *lst);
+// Mines
+void	ft_print_bits(unsigned char octet);
 
 #endif
