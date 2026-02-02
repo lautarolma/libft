@@ -6,7 +6,7 @@
 /*   By: laviles <laviles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 20:21:47 by laviles           #+#    #+#             */
-/*   Updated: 2026/01/26 13:49:36 by laviles          ###   ########.fr       */
+/*   Updated: 2026/02/02 16:41:50 by laviles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,6 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list		*ft_lstnew(void *content);
 int			ft_lstsize(t_list *lst);
 // Mines
-void	ft_print_bits(unsigned char octet);
+void		ft_print_bits(unsigned char octet);
 
 #endif
